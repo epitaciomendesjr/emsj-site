@@ -90,7 +90,13 @@
       footer{padding:30px 0}
       .cookie{grid-template-columns:1fr;bottom:86px}
       .cookie-actions{display:grid}
-      .wa-float{left:12px;right:12px;bottom:10px;min-height:56px;border-radius:14px;padding:0 18px;font-size:.9rem}
+      .wa-float{
+        left:12px;right:12px;bottom:10px;min-height:56px;border-radius:14px;
+        padding:0 18px;font-size:.9rem;
+        opacity:0;transform:translateY(120%);pointer-events:none;
+        transition:opacity .2s ease,transform .2s ease
+      }
+      .wa-float.show{opacity:1;transform:translateY(0);pointer-events:auto}
       .wa-icon{font-size:1.12rem}
     }
   </style>
@@ -111,7 +117,7 @@
       <h1>Plano de saúde negou exame, cirurgia ou tratamento?</h1>
       <p class="lead">Recusa ou demora na autorização não tem uma resposta única. A análise começa pela justificativa da operadora, pela indicação médica e pelos documentos do caso.</p>
       <div class="actions">
-        <a class="btn btn-wa js-whatsapp" data-placement="hero" href="https://wa.me/5582981553107?text=Ol%C3%A1.%20Acessei%20a%20p%C3%A1gina%20sobre%20plano%20de%20sa%C3%BAde%20e%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20inicial." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a id="hero-whatsapp" class="btn btn-wa js-whatsapp" data-placement="hero" href="https://wa.me/5582981553107?text=Ol%C3%A1.%20Acessei%20a%20p%C3%A1gina%20sobre%20plano%20de%20sa%C3%BAde%20e%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20inicial." target="_blank" rel="noopener">Falar no WhatsApp</a>
         <a class="btn btn-outline" href="#entenda">Ver o que precisa ser analisado</a>
       </div>
       <div class="trust-line"><span>Maceió/AL</span><span>Análise individual</span><span>Contato direto</span></div><p class="hero-note">Conteúdo informativo. O contato não implica contratação, promessa de resultado ou conclusão prévia sobre o caso.</p>
@@ -229,6 +235,17 @@ function track(name,params={}){try{gtag('event',name,params)}catch(e){}}
 document.querySelectorAll('.js-whatsapp').forEach(el=>el.addEventListener('click',()=>{
   track('whatsapp_click',{page_type:'landing_health',campaign_topic:'plano_saude',placement:el.dataset.placement||'unknown'});
 }));
+
+// No celular, o CTA fixo só aparece depois que o CTA principal sai da área visível.
+const stickyWhatsApp=document.querySelector('.wa-float');
+const heroWhatsApp=document.getElementById('hero-whatsapp');
+if(stickyWhatsApp && heroWhatsApp && window.matchMedia('(max-width:650px)').matches){
+  const observer=new IntersectionObserver(entries=>{
+    const heroIsVisible=entries[0].isIntersecting;
+    stickyWhatsApp.classList.toggle('show',!heroIsVisible);
+  },{threshold:0.05});
+  observer.observe(heroWhatsApp);
+}
 </script>
 </body>
 </html>
