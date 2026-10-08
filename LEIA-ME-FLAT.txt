@@ -1,0 +1,7 @@
+VERSÃO PARA UPLOAD DIRETO NA RAIZ DO REPOSITÓRIO GitHub Pages
+
+1. NÃO ALTERE O ARQUIVO CNAME JÁ EXISTENTE NO GITHUB.
+2. Faça upload de todos os arquivos desta pasta diretamente na raiz do repositório emsj-site.
+3. Os arquivos index.html e privacidade.html devem substituir os atuais.
+4. Os três artigos e todas as imagens ficam na raiz nesta versão.
+5. Mantenha plano-saude.html por enquanto; apague somente depois da validação final.
