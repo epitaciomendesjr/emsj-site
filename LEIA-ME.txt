@@ -1,0 +1,18 @@
+EMSJ ADVOCACIA — PACOTE DE PRODUÇÃO
+
+Publicar TODO o conteúdo desta pasta na raiz da hospedagem do domínio emsj.adv.br.
+
+Estrutura:
+- index.html
+- privacidade.html
+- robots.txt
+- sitemap.xml
+- assets/
+- artigos/
+
+Atenção:
+1. Mantenha exatamente os nomes das pastas assets e artigos.
+2. Não publique o antigo arquivo/logomarca que contenha a denominação visual “EMSJ Advogados”.
+3. O site usa a denominação pública “EMSJ Advocacia” e identifica Epitácio Mendes Silva Junior — OAB/AL 24.186.
+4. Após a publicação, teste em celular e computador: WhatsApp, e-mail, Instagram, mapa, formulário, três artigos, política de privacidade e favicon.
+5. Envie https://www.emsj.adv.br/sitemap.xml ao Google Search Console quando possível.
