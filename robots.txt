@@ -1,4 +1,7 @@
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: *
 Allow: /
 
-Sitemap: https://www.emsj.adv.br/sitemap.xml
+Sitemap: https://emsj.adv.br/sitemap.xml
